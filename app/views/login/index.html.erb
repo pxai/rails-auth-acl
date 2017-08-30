@@ -1,5 +1,7 @@
 <h1>Login#index</h1>
-
+<% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+<% end %>
 <%= form_for :user do |f| %>
     <% if @user.errors.any? %>
     <div id="error_explanation">
