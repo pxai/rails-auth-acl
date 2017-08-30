@@ -1,0 +1,32 @@
+<h1>Sign Up</h1>
+<% if flash[:notice] %>
+    <div class="notice"><%= flash[:notice] %></div>
+<% end %>
+<%= form_for :user do |f| %>
+    <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2>
+        <%= pluralize(@user.errors.count, "error") %> error
+      </h2>
+      <ul>
+        <% @user.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+    <p>
+      <%= f.label :login %><br>
+      <%= f.text_field :login %>
+    </p>
+   
+    <p>
+      <%= f.label :password %><br>
+      <%= f.password_field :password %>
+    </p>
+   
+    <p>
+      <%= f.submit %>
+    </p>
+  <% end %>

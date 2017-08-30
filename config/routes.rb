@@ -6,6 +6,9 @@ Rails.application.routes.draw do
   get 'home/index'
 
   get 'login/index'
+  get 'login/sign_out'
+  get  'login/sign_up'
+  post 'login/sign_up' => 'login#sign_up_save'
   post 'login/index' => 'login#sign_in'
 
   # The priority is based upon order of creation: first created -> highest priority.
