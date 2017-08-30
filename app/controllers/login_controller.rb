@@ -5,14 +5,14 @@ class LoginController < ApplicationController
  
     def sign_in
       # params[:password]
-      @user = User.new(user_params)
-
+      tmp_user = User.new(user_params)
+      @user = User.find_by(login: tmp_user.login)
       
-       if !User.find_by(login:@user.login)
-         flash[:notice] = "User not found"
+       if !@user
+         @user = tmp_user
+         flash[:notice] = "User not found " + tmp_user.login.to_s
          render 'index'
        else
-         @user = User.find_by(login:@user.login)
          session[:current_user_id] = @user.id
          redirect_to '/protected/index'
        end
