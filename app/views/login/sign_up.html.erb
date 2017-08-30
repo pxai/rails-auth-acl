@@ -25,7 +25,10 @@
       <%= f.label :password %><br>
       <%= f.password_field :password %>
     </p>
-   
+    <p>
+      Repeat password<br>
+      <%= password_field_tag :password2 %>
+    </p>
     <p>
       <%= f.submit %>
     </p>

@@ -24,13 +24,16 @@ class LoginController < ApplicationController
     def sign_up_save
       @user = User.new(user_params)
 
-      if !User.find_by(login: @user.login)
-        @user.save()
-        flash[:notice] = "Please login with your new user "
-        redirect_to '/login/index'
-      else
-        flash[:notice] = "User already exists" + @user.login.to_s
+      if @user.password != params[:password2]
+        flash[:notice] = "Passwords must be the same "+ params[:password2]
+        redirect_to '/login/sign_up'
+      elsif User.find_by(login: @user.login)
+        flash[:notice] = "User already exists: " + @user.login.to_s
         render 'sign_up'
+      else
+        @user.save()
+        flash[:notice] = "Please login with your new user: " + @user.login
+        redirect_to '/login/index'
       end
     end
 
@@ -41,6 +44,6 @@ class LoginController < ApplicationController
 
   private
     def user_params
-      params.require(:user).permit(:login, :text)
+      params.require(:user).permit(:login, :password, :password2)
     end
 end
