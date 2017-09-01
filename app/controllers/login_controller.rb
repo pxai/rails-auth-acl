@@ -6,10 +6,10 @@ class LoginController < ApplicationController
     def sign_in
       @user = User.new(user_params)
       
-       if User.find_by(login:@user.login)
-         redirect_to @user
-       else
+       if !User.find_by(login:@user.login)
          render 'index'
+       else
+         redirect_to '/protected/index'
        end
     end
 

@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'admin/index'
+
+  get 'protected/index'
+
   get 'home/index'
 
   get 'login/index'
