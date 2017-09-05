@@ -1,4 +1,4 @@
-class ProtectedController < ApplicationController
+class ProtectedController < LoggedController
   def index
   end
 end

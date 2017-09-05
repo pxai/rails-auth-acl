@@ -1,4 +1,5 @@
 class LoginController < ApplicationController
+
     def index
       @user = User.new()
     end
@@ -9,7 +10,7 @@ class LoginController < ApplicationController
       
        if !@user
          @user = tmp_user
-         flash[:notice] = "User not found " + tmp_user.login.to_s
+         flash[:notice] =t("user-not-found") + tmp_user.login.to_s
          render 'index'
        else
          session[:user_id] = @user.id
@@ -30,10 +31,12 @@ class LoginController < ApplicationController
       elsif User.find_by(login: @user.login)
         flash[:notice] = "User already exists: " + @user.login.to_s
         render 'sign_up'
-      else
-        @user.save()
+      elsif @user.save()
         flash[:notice] = "Please login with your new user: " + @user.login
         redirect_to '/login/index'
+      else
+        flash[:notice] = "Login name not valid "
+        redirect_to '/login/sign_up'
       end
     end
 

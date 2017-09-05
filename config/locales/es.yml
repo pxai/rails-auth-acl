@@ -19,13 +19,13 @@
 # To learn more, please read the Rails Internationalization guide
 # available at http://guides.rubyonrails.org/i18n.html.
 
-en:
-  hello: "Hello world"
-  login: "Login"
-  login-title: "Login page"
-  password: "Password"
-  user-not-found: "User not found "
-  signin: "Sign In"
-  signup: "Sign Up"
-  signout: "Sign Out"
-  not-logged: "User not logged"
+es:
+  hello: "Hola mundo"
+  login: "Usuario"
+  login-title: "Entrar"
+  password: "Contraseña"
+  user-not-found: "Usuario no encontrado "
+  signin: "Entrar"
+  signup: "Alta"
+  signout: "Salir"
+  not-logged: "No está logueado"
