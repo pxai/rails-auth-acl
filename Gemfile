@@ -25,8 +25,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'colorize', '~> 0.8.1'
 
+# For user auth, and has_secure_passowrd
 # Use ActiveModel has_secure_password
-# gem 'bcrypt', '~> 3.1.7'
+gem 'bcrypt', '~> 3.1.7'
+
+
 
 # Use Unicorn as the app server
 # gem 'unicorn'

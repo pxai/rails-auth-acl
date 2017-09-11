@@ -6,10 +6,7 @@ class ApplicationController < ActionController::Base
 
   def check_login
     if !session[:user_id]
-      puts t('not-logged').red
       redirect_to '/home/index'
-    else
-      puts session[:user_id].to_s.green
     end
   end
 

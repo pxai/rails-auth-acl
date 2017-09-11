@@ -20,6 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 es:
+  home: "Inicio"
   hello: "Hola mundo"
   login: "Usuario"
   login-title: "Entrar"
@@ -29,3 +30,4 @@ es:
   signup: "Alta"
   signout: "Salir"
   not-logged: "No está logueado"
+  protected_zone: "Zona protegida"

@@ -1,9 +1,9 @@
 require 'test_helper'
 
 class ProtectedControllerTest < ActionController::TestCase
-  test "should get index" do
+  test "should not get index" do
     get :index
-    assert_response :success
+    assert_response 302
   end
 
 end

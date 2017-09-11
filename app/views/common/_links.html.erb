@@ -1,3 +1,8 @@
+<div><%= link_to t(:home), '/login/index' %></div>
 <div><%= link_to t(:signin), '/login/index' %></div>
-<div><%= link_to t(:signup), '/login/sign_up' %></div>
+<div><%= link_to t(:signup), login_sign_up_path %></div>
+<% if true %>
+<div><%= link_to t(:signout), '/login/sign_out' %></div>
+    <% end %>
+<div><%= link_to t(:protected_zone), '/protected/index' %></div>
 <div><%= link_to 'EN', '?locale=en' %> | <%= link_to 'ES', '?locale=es' %></div>

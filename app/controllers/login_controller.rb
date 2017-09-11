@@ -8,13 +8,13 @@ class LoginController < ApplicationController
       tmp_user = User.new(user_params)
       @user = User.find_by(login: tmp_user.login)
       
-       if !@user
+       if @user && @user.authenticate(tmp_user.password)
+         session[:user_id] = @user.id
+         redirect_to '/protected/index'
+       else
          @user = tmp_user
          flash[:notice] =t("user-not-found") + tmp_user.login.to_s
          render 'index'
-       else
-         session[:user_id] = @user.id
-         redirect_to '/protected/index'
        end
     end
 

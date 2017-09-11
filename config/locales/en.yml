@@ -20,6 +20,7 @@
 # available at http://guides.rubyonrails.org/i18n.html.
 
 en:
+  home: "Home"
   hello: "Hello world"
   login: "Login"
   login-title: "Login page"
@@ -29,3 +30,4 @@ en:
   signup: "Sign Up"
   signout: "Sign Out"
   not-logged: "User not logged"
+  protected_zone: "Protected zone"

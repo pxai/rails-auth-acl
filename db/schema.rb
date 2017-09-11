@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170902214012) do
+ActiveRecord::Schema.define(version: 20170911104721) do
 
   create_table "roles", force: :cascade do |t|
     t.string   "role"
@@ -24,9 +24,10 @@ ActiveRecord::Schema.define(version: 20170902214012) do
     t.string   "login"
     t.string   "password"
     t.string   "email"
-    t.datetime "created_at", null: false
+    t.datetime "created_at",      null: false
     t.boolean  "active"
-    t.datetime "updated_at", null: false
+    t.datetime "updated_at",      null: false
+    t.string   "password_digest"
   end
 
 end
