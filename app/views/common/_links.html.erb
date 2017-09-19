@@ -1,10 +1,12 @@
-<div><%= link_to t(:home), '/login/index' %></div>
-<% if session[:user_id] %>
-<div><%= link_to t(:signout), '/login/sign_out' %></div>
+<div><%= link_to t(:home), home_index_path %></div>
+<% if session[:user] %>
+    <div>Hello, <%= session[:user]['login'] %></div>
+
+    <div><%= link_to t(:signout), '/login/sign_out' %></div>
 <% else %>
     <div><%= link_to t(:signin), '/login/index' %></div>
     <div><%= link_to t(:signup), login_sign_up_path %></div>
 <% end %>
-<div><%= link_to t(:protected_zone), '/protected/index' %></div>
+<div><%= link_to t("protected-zone"), '/protected/index' %></div>
+<div><%= link_to t("private-zone"), private_index_path %></div>
 <div><%= link_to 'EN', '?locale=en' %> | <%= link_to 'ES', '?locale=es' %></div>
-<div>User: <%= session[:user_id] %></div>

@@ -7,15 +7,20 @@ class LoginController < ApplicationController
     def sign_in
       tmp_user = User.new(user_params)
       @user = User.find_by(login: tmp_user.login)
-      
+
        if @user && @user.authenticate(tmp_user.password)
-         session[:user_id] = @user.id
-         redirect_to '/protected/index'
+         logged_in
        else
          @user = tmp_user
          flash[:notice] =t("user-not-found") + tmp_user.login.to_s
          render 'index'
        end
+    end
+
+    def logged_in
+      session[:user] = @user
+      session[:user_roles] = @user.user_roles
+      redirect_to '/protected/index'
     end
 
     def sign_up
@@ -41,7 +46,7 @@ class LoginController < ApplicationController
     end
 
     def sign_out
-      session[:user_id] = nil
+      session[:user] = nil
       redirect_to '/home/index'
     end
 

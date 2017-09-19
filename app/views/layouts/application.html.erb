@@ -7,8 +7,21 @@
   <%= csrf_meta_tags %>
 </head>
 <body>
+<div class="grid-container">
 
+  <div class="grid-x grid-padding-x">
+
+    <div class="large-12 cell">
+      <h1><%= t "welcome-title" %></h1>
+      <p><%= t "welcome-description" %></p>
+    </div>
+  </div>
+
+  <div class="grid-x grid-padding-x">
+    <div class="large-12 cell">
 <%= yield %>
-
+    </div>
+  </div>
+</div>
 </body>
 </html>

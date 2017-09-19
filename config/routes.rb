@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   get 'admin/index'
 
   get 'protected/index'
+  get 'private/index'
 
   get 'home/index'
 

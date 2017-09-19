@@ -8,6 +8,7 @@ bin/rails generate model User login:string password:string email:string created_
 ### Role
 ```
 bin/rails generate model Role role:string description:string
+rails generate model user_role user:references role:references
 ```
 
 Added relation between them and...

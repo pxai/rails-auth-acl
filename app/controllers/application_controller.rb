@@ -5,7 +5,7 @@ class ApplicationController < ActionController::Base
   before_action :set_locale
 
   def check_login
-    if !session[:user_id]
+    if !session[:user]
       redirect_to '/home/index'
     end
   end
