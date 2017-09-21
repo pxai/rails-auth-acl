@@ -7,6 +7,11 @@
   <li><b>Email: </b><%= @user.email %></li>
   <li><b>Created:</b> <%= @user.created_at %></li>
   <li><b>Updated:</b> <%= @user.updated_at %></li>
+  <li><b>Roles:</b>
+    <% @user.user_roles.each do |role| %>
+      <%=role.role_id %>,
+    <% end %>
+  </li>
 </ul>
 
 <%= link_to 'Edit', edit_user_path(@user) %> |

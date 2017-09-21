@@ -1,3 +1,5 @@
+require 'bcrypt'
+
 class UsersController < LoggedController
   before_filter :admin_only
   before_action :set_user, only: [:show, :edit, :update, :destroy]
@@ -29,6 +31,7 @@ class UsersController < LoggedController
 
     respond_to do |format|
       if @user.save
+        add_default_role @user
         format.html { redirect_to @user, notice: 'User was successfully created.' }
         format.json { render :show, status: :created, location: @user }
       else
@@ -43,6 +46,10 @@ class UsersController < LoggedController
   def update
     respond_to do |format|
       if @user.update(user_params)
+        @user.password = params[:user][:password]
+        @user.password_confirmation = params[:user][:password]
+        @user.save
+      #  update_password(@user, params[:user][:password])
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else
@@ -63,6 +70,28 @@ class UsersController < LoggedController
   end
 
   private
+
+    def update_password (user, new_password)
+      if (new_password.strip != '')
+        user.password = new_password
+        user.password_confirmation = new_password
+        user.save
+      end
+    end
+
+    def add_default_role (user)
+      user_role = UserRole.new()
+      user_role.user_id = user.id
+      user_role.role_id = 1
+      user_role.save()
+    end
+
+    def can_create_user? (user)
+      if existing = User.find_by(:login, 'login')
+        flash[:notice] = "Login already exists "
+        return false
+      end
+    end
     # Use callbacks to share common setup or constraints between actions.
     def set_user
       @user = User.find(params[:id])
