@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   get 'admin' => 'admin#index'
 
   # scaffolded page sample
-  resource :roles
+  resources :roles
+
+  resources :users
 
   get 'protected/index'
   get 'private/index'

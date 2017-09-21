@@ -22,6 +22,20 @@ rails generate controller role
 ```
 
 ### Scaffold a controller from existing model
+```
+rails generate scaffold_controller role
+```
+Then, do not forget to add the resources: or the routes in the config/routes.rb file
+
+**BE CAREFULL**
+In the routes.rb, it is NOT the same
+resource :roles
+and
+resources :roles
+The generated routes are different!
+```
+rake routes
+```
 
 Rollback:
 ```
