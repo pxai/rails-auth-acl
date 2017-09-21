@@ -34,3 +34,4 @@ es:
   not-logged: "No está logueado"
   protected-zone: "Zona protegida"
   private-zone: "Zona privada"
+  admin: "Administración"

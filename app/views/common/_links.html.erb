@@ -1,7 +1,7 @@
 <div><%= link_to t(:home), home_index_path %></div>
 <% if session[:user] %>
     <div>Hello, <%= session[:user]['login'] %></div>
-
+    <div><%= link_to t(:admin), admin_path %></div>
     <div><%= link_to t(:signout), '/login/sign_out' %></div>
 <% else %>
     <div><%= link_to t(:signin), '/login/index' %></div>

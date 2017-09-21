@@ -1,7 +1,10 @@
 Rails.application.routes.draw do
   get 'sessions/new'
 
-  get 'admin/index'
+  get 'admin' => 'admin#index'
+
+  # scaffolded page sample
+  resource :roles
 
   get 'protected/index'
   get 'private/index'

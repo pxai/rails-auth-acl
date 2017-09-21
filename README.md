@@ -15,6 +15,18 @@ Added relation between them and...
 ```
 rake db:migrate
 ```
+### Adding controller
+With create:
+```
+rails generate controller role
+```
+
+### Scaffold a controller from existing model
+
+Rollback:
+```
+rails destroy controller role
+```
 
 ### Changinh models
 
@@ -40,3 +52,4 @@ And now try:
 ````
 user.authenticate('password')
 ```
+
