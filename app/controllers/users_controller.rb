@@ -28,7 +28,6 @@ class UsersController < LoggedController
   # POST /users.json
   def create
     @user = User.new(user_params)
-
     respond_to do |format|
       if @user.save
         add_default_role @user
@@ -45,11 +44,8 @@ class UsersController < LoggedController
   # PATCH/PUT /users/1.json
   def update
     respond_to do |format|
+      # Note: the password will be saved automatically with bcrypt
       if @user.update(user_params)
-        @user.password = params[:user][:password]
-        @user.password_confirmation = params[:user][:password]
-        @user.save
-      #  update_password(@user, params[:user][:password])
         format.html { redirect_to @user, notice: 'User was successfully updated.' }
         format.json { render :show, status: :ok, location: @user }
       else

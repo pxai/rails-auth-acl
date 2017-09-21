@@ -56,6 +56,7 @@ rake db:migrate
 https://gist.github.com/pyk/8569812
 
 ### Migrating users from plain to bcrypt
+In the console
 ```
 user.password = 'password'
 user.password_confirmation = 'password'
@@ -66,4 +67,8 @@ And now try:
 ````
 user.authenticate('password')
 ```
-
+# CRUD with users
+Once brypct is stablished in the model,
+you just create and update users and the password will be saved with encryption.
+When no password is provided, or when any other field is not changed, rails
+does not change that field.
